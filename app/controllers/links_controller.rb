@@ -65,13 +65,13 @@ class LinksController < ApplicationController
   def upvote
     @link = Link.find(params[:id])
     @link.upvote_by current_user
-    redirect_back(fallback_location: fallback_location)
+    redirect_back(fallback_location: "link#index")
   end
 
   def downvote
     @link = Link.find(params[:id])
     @link.downvote_from current_user
-    redirect_back(fallback_location: fallback_location)
+    redirect_back(fallback_location: "link#index")
   end
   
   private
